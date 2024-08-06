@@ -2364,6 +2364,7 @@ sky = SubResource("Sky_ygba1")
 
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.88854, 0, 0, 0, 1, 0, 0, 0, 4.84516, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_n5jth")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground"]
@@ -2373,6 +2374,7 @@ shape = SubResource("ConcavePolygonShape3D_fqp1s")
 
 [node name="wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91239, 0.724457, -5.33593)
+visible = false
 mesh = SubResource("SphereMesh_h2vvd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall"]
@@ -2863,18 +2865,12 @@ autoplay = "idle"
 [node name="camera" type="Node3D" parent="player"]
 script = ExtResource("1_obbf8")
 
-[node name="horizontal" type="Node3D" parent="player/camera"]
-
-[node name="vertical" type="Node3D" parent="player/camera/horizontal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Spring_arm" type="SpringArm3D" parent="player/camera/horizontal/vertical"]
-spring_length = 3.0
-
-[node name="Camera3D" type="Camera3D" parent="player/camera/horizontal/vertical/Spring_arm"]
+[node name="Camera3D" type="Camera3D" parent="player/camera"]
+transform = Transform3D(1, 0, 0, 0, 0.745069, 0.666988, 0, -0.666988, 0.745069, 0.0667973, 8.02552, 6.62037)
 
 [node name="Directional_Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -2882,15 +2878,20 @@ environment = SubResource("Environment_oqbu1")
 
 [node name="Enemy" parent="." instance=ExtResource("3_a1j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 1, 0)
+visible = false
 
 [node name="Enemy2" parent="." instance=ExtResource("3_a1j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 20)
+visible = false
 
 [node name="Enemy3" parent="." instance=ExtResource("3_a1j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, -20)
+visible = false
 
 [node name="Enemy4" parent="." instance=ExtResource("3_a1j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 20)
+visible = false
 
 [node name="Enemy5" parent="." instance=ExtResource("3_a1j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, -10)
+visible = false

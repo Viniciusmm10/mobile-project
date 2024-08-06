@@ -23,9 +23,8 @@ func _physics_process(delta: float) -> void:
 			_attack()
 			print_debug("atacar inimigo")
 
-	var horizontal_rotation = $camera/horizontal.global_transform.basis.get_euler().y
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, horizontal_rotation)
+	var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	if velocity.length() > 0:
 		animation_player.play("run")
 	else:
