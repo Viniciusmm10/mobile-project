@@ -11,11 +11,7 @@ var attack_range = 2.0
 @onready var animation_player: AnimationPlayer = $mesh/AnimationPlayer
 
 
-
-
-
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
@@ -27,8 +23,6 @@ func _physics_process(delta: float) -> void:
 			_attack()
 			print_debug("atacar inimigo")
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var horizontal_rotation = $camera/horizontal.global_transform.basis.get_euler().y
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, horizontal_rotation)
